@@ -19,9 +19,7 @@ class ProductsController extends Controller
     {
         
         $title = 'Créer un produit';
-        $documents = Documents::all();
-        $documenttypes = Documenttypes::all();
-        return view ('products.create', compact('title','documents','documenttypes'));
+        return view ('products.create', compact('title'));
     }
 
     public function store (Request $request){
@@ -41,18 +39,16 @@ class ProductsController extends Controller
         $input = $request->all();
         $input['is_active'] = true;
         $products = Products::create($input);
-        $products->documents()->attach($request->input('document_id'));
         return redirect()->route('products.index')->with('success', 'Le document a été créé avec succès.');;
 
     }       
 
     public function show(Products $product)
-    {
-        $title = 'Détails du produit';
-        $product->load('documents.documentType'); // Charger les documents avec leurs types
-
-        return view('products.show', compact('title', 'product'));
-    }
+{
+    $title = 'Détails du produit';
+    
+    return view('products.show', compact('title', 'product'));
+}
     
     public function edit(Products $product)
     {

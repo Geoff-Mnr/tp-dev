@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Documents;
 use App\Models\Customer;
+use App\Models\Products;
 use App\Models\Documenttypes;
 use Illuminate\Http\Request;
 
@@ -10,9 +11,10 @@ class DocumentsController extends Controller
 {
     public function index()
     {
-        $documents = Documents::with('customer', 'documenttype')->get();
+        $documents = Documents::with('customer', 'documenttype', 'products')->get();
+
         $title = 'Liste des documents';
-        return view ('documents.index', compact('title','documents'));
+        return view('documents.index', compact('title', 'documents'));
     }
 
     public function create()
@@ -21,8 +23,9 @@ class DocumentsController extends Controller
         $title = 'Créer un document';
 
         $customers = Customer::all(); 
+        $products = Products::all();
         $documenttypes = Documenttypes::all();
-        return view ('documents.create', compact('title','customers','documenttypes'));
+        return view ('documents.create', compact('title','customers','products','documenttypes'));
     }
 
     public function store(Request $request)
@@ -34,18 +37,22 @@ class DocumentsController extends Controller
             'totalhvat' => 'required|numeric',
             'vat' => 'required|numeric',
             'totalttc' => 'required|numeric',
-            
+            'product_id' => 'required', 
         ]);
     
-        $input = $request->all();
-        $input['is_active'] = true;
+        
+        $documentData = $request->all();
+        $documentData['is_active'] = true;
     
-        $Documents = Documents::create($input);
+        $document = Documents::create($documentData);
+    
+        
+        $document->products()->attach($request->input('product_id'));
     
         return redirect()->route('documents.index')->with('success', 'Le document a été créé avec succès.');
     }
     
-
+    
     public function show(Documents $document)
     {
         $title='Détails du document';
@@ -54,18 +61,31 @@ class DocumentsController extends Controller
 
     public function edit(Documents $document)
     {
-        $title='Modifier le document';
-        return view('documents.edit', compact('title','document'));
+        $title = 'Modifier le document';
+        $customers = Customer::all();
+        $products = Products::all(); 
+        $documenttypes = Documenttypes::all();
+        return view('documents.edit', compact('title', 'customers', 'products', 'documenttypes', 'document'));
     }
+
 
     public function update(Request $request, Documents $document)
     {
+        
+        $document->update($request->all());
 
-        $input = $request->all();
-        $input['is_active'] = true;
-        $document->update($input);
-        return redirect()->route('documents.index');
+        $productID = $request->input('product_id');
+        $document->products()->sync($productID);
+
+        if($document->wasChanged()){
+            return redirect()->route('documents.show', $document)->with('Félicitation', 'Le produit a été modifié');
+        }else{
+            return redirect()->route('documents.show', $document)->with('Attention', 'Aucune modification a été faite');
+        }
+        
     }
+    
+    
 
     public function destroy(Documents $document)
     {

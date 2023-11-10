@@ -30,9 +30,19 @@ class Products extends Model
 
 
 
-    public function documents() {
-        return $this->belongsToMany(Documents::class, 'documents_products', 'product_id', 'document_id');
-    }
+    public function documents()
+{
+    return $this->belongsToMany(Documents::class,'documents_products', 'product_id', 'document_id')
+        ->withPivot([
+            'selling_price',
+            'quantity',
+            'discount',
+            'total',
+            'price_hvat',
+            'price_vvat',
+            'total_hvat'
+        ]);
+}
     
 
 };
