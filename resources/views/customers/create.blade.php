@@ -10,7 +10,7 @@
 
             <div class="mb-6 mt-1">
                 <label for="reference" class="block mb-2 text-md font-medium text-white">Référence</label>
-                <input type="text" name="reference" id="reference"
+                <input type="text" name="reference" id="reference" readonly
                     class="bg-gray-50 border border-gray-300  text-sm rounded-lg focus:ring-blue-500  block w-1/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 placeholder-gray-400 text-white  focus:border-blue-500"
                     value="{{ old('reference') }}">
                 @error('reference')
@@ -20,12 +20,27 @@
                 @enderror
             </div>
 
+
             <div class="mb-6 mt-1">
                 <label for="name" class="block mb-2 text-md font-medium text-white">Nom</label>
                 <input type="text" name="name" id="name"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     value="{{ old('name') }}">
                 @error('name')
+                    <div class="text-red-500 mt-2 text-sm">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
+
+            
+            <div class="mb-6 mt-1">
+                <label for="adress" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Adresse</label>
+                <input name="adress" id="adress"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/4 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                {{ old('adress') }}
+                </input>
+                @error('adress')
                     <div class="text-red-500 mt-2 text-sm">
                         {{ $message }}
                     </div>

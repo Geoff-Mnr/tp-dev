@@ -55,7 +55,7 @@ class DocumentsController extends Controller
     
     public function show(Documents $document)
     {
-        $title='Détails du document';
+        $title='Facture :';
         return view('documents.show', compact('title','document'));
     }
 
@@ -78,9 +78,9 @@ class DocumentsController extends Controller
         $document->products()->sync($productID);
 
         if($document->wasChanged()){
-            return redirect()->route('documents.show', $document)->with('Félicitation', 'Le produit a été modifié');
+            return redirect()->route('documents.index', $document)->with('Félicitation', 'Le produit a été modifié');
         }else{
-            return redirect()->route('documents.show', $document)->with('Attention', 'Aucune modification a été faite');
+            return redirect()->route('documents.index', $document)->with('Attention', 'Aucune modification a été faite');
         }
         
     }
@@ -92,5 +92,7 @@ class DocumentsController extends Controller
         $document->delete();
         return redirect()->route('documents.index')->with('success', 'le produit a bien été supprimé');
     }
+
+
 
 }

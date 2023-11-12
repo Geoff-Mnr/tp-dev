@@ -12,6 +12,9 @@
             <span class="dark:text-white">{{ $customer->name }}</span>
             </br>
             <label for="email" class="dark:text-gray-400 font-semibold">Email</label>
+            <span class="dark:text-white">{{ $customer->adress}}</span>
+            </br>
+            <label for="email" class="dark:text-gray-400 font-semibold">Email</label>
             <span class="dark:text-white">{{ $customer->email }}</span>
             </br>
             <label for="phone" class="dark:text-gray-400 font-semibold">Téléphone</label>

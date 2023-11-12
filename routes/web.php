@@ -23,6 +23,9 @@ Route::get('/documenttypes', function () {
 })->name('documenttypes');
 
 
+
+
+
 Route::resources([
     'customers' => \App\Http\Controllers\CustomersController::class,
     'products' => \App\Http\Controllers\ProductsController::class,

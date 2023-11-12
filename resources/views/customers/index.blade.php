@@ -32,6 +32,7 @@
                             <tr>
                                 <th scope="col" class="p-4">Référence</th>
                                 <th scope="col" class="p-4">Nom</th>
+                                <th scope="col" class="p-4">Adresse</th>
                                 <th scope="col" class="p-4">E-mail</th>
                                 <th scope="col" class="p-4">Téléphone</th>
                                 <th scope="col" class="p-4">Site</th>
@@ -53,6 +54,11 @@
                                     <td class="px-4 py-3">
                                         <div class="flex items-center">
                                             {{ $customer->name }}
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-3">
+                                        <div class="flex items-center">
+                                            {{ $customer->adress }}
                                         </div>
                                     </td>
                                     <td class="px-4 py-3">

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('reference')->unique();
             $table->string('name');
+            $table->string('adress')->nullable(true);
             $table->string('email')->nullable(true);
             $table->string('phone')->nullable(true);
             $table->string('website')->nullable(true);

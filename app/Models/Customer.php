@@ -14,6 +14,7 @@ class Customer extends Model
         'reference',
         'name',
         'email',
+        'adress',
         'phone',
         'website',
         'vat_number',
