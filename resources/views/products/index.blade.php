@@ -28,16 +28,15 @@
                 
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-400">
-                        <thead class="text-xs  uppercase  bg-gray-700 text-gray-400">
+                        <thead class="text-xs uppercase bg-gray-700 text-gray-400">
                             <tr>
                                 <th scope="col" class="p-4">Référence</th>
                                 <th scope="col" class="p-4">Nom</th>
                                 <th scope="col" class="p-4">Marque</th>
                                 <th scope="col" class="p-4">Code ean</th>
                                 <th scope="col" class="p-4">Stock</th>
-                                <th scope="col" class="p-4">Stock Minimum</th>
-                                <th scope="col" class="p-4">Prix d'achat</th>
-                                <th scope="col" class="p-4">Prix de vente</th>
+                                <th scope="col" class="p-4">Prix </th>
+                                <th scope="col" class="p-4">Prix </th>
                                 <th scope="col" class="p-4">Description</th>
                                 <th scope="col" class="p-4">Commentaire</th>
                                 <th scope="col" class="p-4">Éditez votre client</th>
@@ -74,11 +73,6 @@
                                     </td>
                                     <td class="px-4 py-3">
                                         <div class="flex items-center">
-                                            {{ $product->stock_min }}
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-3">
-                                        <div class="flex items-center">
                                             {{ $product->buying_price }}
                                         </div>
                                     </td>
@@ -97,7 +91,6 @@
                                             {{ $product->comment }}
                                         </div>
                                     </td>
-
 
                                     <td class="px-4 py-3 font-medium  whitespace-nowrap text-white">
                                         <div class="flex items-center space-x-4">
