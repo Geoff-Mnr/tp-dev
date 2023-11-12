@@ -25,7 +25,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-400">
                         <thead class="text-xs  uppercase  bg-gray-700 text-gray-400">

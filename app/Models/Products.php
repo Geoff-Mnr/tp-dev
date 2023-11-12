@@ -27,11 +27,9 @@ class Products extends Model
         
     ];
 
-
-
-
+    
     public function documents()
-{
+    {
     return $this->belongsToMany(Documents::class,'documents_products', 'product_id', 'document_id')
         ->withPivot([
             'selling_price',
@@ -42,7 +40,7 @@ class Products extends Model
             'price_vvat',
             'total_hvat'
         ]);
-}
+    }
     
 
 };

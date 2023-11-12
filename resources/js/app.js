@@ -2,7 +2,7 @@ import './bootstrap';
 
 
 
-// Générer une référence automatique côté client
+// Générer une référence automatique
 document.addEventListener('DOMContentLoaded', function () {
     var referenceInput = document.getElementById('reference');
     if (referenceInput) {

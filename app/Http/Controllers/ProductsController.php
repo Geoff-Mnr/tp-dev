@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+    //Fonction qui permet de lister les produits
     public function index()
     {
         $products = Products::all();
@@ -15,13 +16,14 @@ class ProductsController extends Controller
         return view ('products.index', compact('title','products'));
     }
 
+    //Fonction qui permet de créer un produit
     public function create()
     {
-        
         $title = 'Créer un produit';
         return view ('products.create', compact('title'));
     }
 
+    //Fonction qui permet de stocker un produit
     public function store (Request $request){
         $request->validate([
             'reference' => 'required|min:3|max:255',
@@ -35,7 +37,6 @@ class ProductsController extends Controller
             'is_active' => 'nullable|boolean',
         ]);
 
-       
         $input = $request->all();
         $input['is_active'] = true;
         $products = Products::create($input);
@@ -43,19 +44,21 @@ class ProductsController extends Controller
 
     }       
 
+    //Fonction qui permet d'afficher un produit
     public function show(Products $product)
-{
-    $title = 'Détails du produit';
+    {
+        $title = 'Détails du produit';
+        return view('products.show', compact('title', 'product'));
+    }
     
-    return view('products.show', compact('title', 'product'));
-}
-    
+    //Fonction qui permet de modifier un produit
     public function edit(Products $product)
     {
         $title='Modifier le produit';
         return view('products.edit', compact('title','product'));
     }
 
+    //Fonction qui permet de mettre à jour un produit
     public function update(Request $request, Products $product)
     {
         $request->validate([
@@ -70,7 +73,6 @@ class ProductsController extends Controller
             'is_active' => 'nullable|boolean',
         ]);
 
-       
         $product->update($request->all());
 
         if($product->wasChanged()){
@@ -80,6 +82,7 @@ class ProductsController extends Controller
         }
     }
   
+    //Fonction qui permet de supprimer un produit
     public function destroy(Products $product)
     {
         $product ->delete();

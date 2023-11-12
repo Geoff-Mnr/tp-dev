@@ -62,13 +62,14 @@
                 </tbody>
             </table>
             <div class="flex flex-col items-end w-full mt-7 bg-gray-700 p-4 rounded-b-lg">
-                <span class="w-1/6 text-white font-semibold">TVA : <span class="font-normal text-gray-400">{{$document->vat}}% </span></span>
-                <span class="w-1/6 text-white font-semibold">TOTAL : <span class="font-normal text-gray-400">{{$document->totalttc}}€ </span></span>
+                <span class="w-1/6 text-white font-semibold">TVA : <span
+                        class="font-normal text-gray-400">{{ $document->vat }}% </span></span>
+                <span class="w-1/6 text-white font-semibold">TOTAL : <span
+                        class="font-normal text-gray-400">{{ $document->totalttc }}€ </span></span>
             </div>
-            
+
         </div>
 
-        
 
         <a href="{{ route('documents.index') }}" class="px-3">
             <button type="button" data-drawer-target="drawer-read-product-advanced"

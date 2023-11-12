@@ -71,7 +71,7 @@
                                     <td class="px-4 py-3">
                                         <div class="flex items-center">
                                             @foreach ($document->products as $product)
-                                                {{ $product->name }} - {{ $product->brand}}
+                                                {{ $product->name }} - {{ $product->brand }}
                                                 </br>
                                             @endforeach
                                         </div>
