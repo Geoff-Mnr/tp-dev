@@ -43,7 +43,7 @@
                         <thead class="text-xs  uppercase  bg-gray-700 text-gray-400">
                             <tr>
 
-                                <th scope="col" class="p-4">Nom de la société</th>
+                                <th scope="col" class="p-4">Société</th>
                                 <th scope="col" class="p-4">Type</th>
                                 <th scope="col" class="p-4">Produit(s)</th>
                                 <th scope="col" class="p-4">Référence</th>

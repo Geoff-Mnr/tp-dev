@@ -24,3 +24,15 @@ PS: Sorry pour le retard, j'ai eu un problème de connexion internet.
 Bonne semaine à vous. 
 
 Mike. 
+
+
+
+
+
+
+Salut Mike,
+
+
+Pour faire tourner Tailwind il faut faire npm run dev.
+
+Geoffrey.
