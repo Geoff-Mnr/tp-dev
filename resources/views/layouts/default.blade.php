@@ -16,7 +16,7 @@
                     <div class="flex-shrink-0">
                         <img class="h-12 w-12" src="{{ asset('img/facture-dachat.webp') }}" alt="logo">
                     </div>
-                    <div class="hidden md:block">
+                    <div class="md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <a href="{{ route('home') }}" :active="request() - > routeIs('home')"
                                 class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
